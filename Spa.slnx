@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/" />
+  <Folder Name="/src/" />
+  <Folder Name="/src/core/">
+    <Project Path="src/core/Spa.Application/Spa.Application.csproj" />
+    <Project Path="src/core/Spa.Domain/Spa.Domain.csproj" />
+    <Project Path="src/core/Spa.Infrastructure/Spa.Infrastructure.csproj" />
+    <Project Path="src/core/Spa.WebAPI/Spa.WebAPI.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
