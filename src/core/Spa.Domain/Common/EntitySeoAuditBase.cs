@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using Spa.Domain.Common.InterFaces;
 
-namespace Spa.Domain.Common.InterFaces;
+namespace Spa.Domain.Common;
 
 public class EntitySeoAuditBase<T> : EntityAuditBase<T>, IEntitySeoBase
 {

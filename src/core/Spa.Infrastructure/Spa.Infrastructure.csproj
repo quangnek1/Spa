@@ -6,4 +6,31 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Configurations\" />
+      <Folder Include="Services\" />
+      <Folder Include="Repositories\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.3" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.3">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.2" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.3" />
+      <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.3" />
+      <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+      <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+      <PackageReference Include="Serilog.Formatting.Compact" Version="3.0.0" />
+      <PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Spa.Application\Spa.Application.csproj" />
+      <ProjectReference Include="..\Spa.Domain\Spa.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -6,14 +6,15 @@ namespace Spa.Domain.Entities.Customers;
 
 public class Customer : EntityBase<int>
 {
-    [Column(TypeName = "nvarchar(250)")]
-    public string Name { get; set; }
-    public int? YearOld  { get; set; }
-    [Column(TypeName = "nvarchar(250)")]
-    public string? Address  { get; set; }
-    [Column(TypeName = "nvarchar(250)")]
-    [EmailAddress]
-    public string? Email  { get; set; }
-    public string? Phone  { get; set; }
-    public bool Status  { get; set; }
+	[Column(TypeName = "nvarchar(250)")]
+	public string Name { get; set; }
+	public DateTime? DateOfBirth { get; set; }
+	[Column(TypeName = "nvarchar(250)")]
+	public string? Address { get; set; }
+	[Column(TypeName = "nvarchar(250)")]
+	[EmailAddress]
+	public string? Email { get; set; }
+	[Column(TypeName = "nvarchar(20)")]
+	public string? Phone { get; set; }
+	public bool Status { get; set; }
 }

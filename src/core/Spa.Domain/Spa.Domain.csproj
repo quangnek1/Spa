@@ -7,10 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Entities\Identity\" />
-      <Folder Include="Entities\Payment\" />
       <Folder Include="Exceptions\" />
       <Folder Include="ValueObjects\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="10.0.3" />
     </ItemGroup>
 
 </Project>
