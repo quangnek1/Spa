@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  #database section
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    
+  #

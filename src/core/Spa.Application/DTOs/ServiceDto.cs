@@ -8,7 +8,7 @@ public class ServiceDto
     public string Image { get; set; } = default!;
     public string Description { get; set; } = default!;
     public string ShortDescription { get; set; } = default!;
-    
+
     // Gom các Package thành danh sách giá cơ bản để hiển thị
     public List<ServicePackageDto> Packages { get; set; } = new();
 }

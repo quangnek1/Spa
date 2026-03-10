@@ -2,7 +2,7 @@
 
 public enum MenuPosition
 {
-	Header = 1,
-	Footer = 2,
-	Sidebar = 3
+    Header = 1,
+    Footer = 2,
+    Sidebar = 3
 }

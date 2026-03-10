@@ -1,4 +1,5 @@
 namespace Spa.Domain.Common.InterFaces;
+
 public interface IEntitySeoBase
 {
     string? Slug { get; set; }

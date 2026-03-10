@@ -1,9 +1,8 @@
 ﻿using Spa.Application.DTOs;
 
-namespace Spa.Application.Interfaces
+namespace Spa.Application.Interfaces;
+
+public interface IPaymentService
 {
-	public interface IPaymentService
-	{
-		Task<bool> ProcessBookingPaymentAsync(ProcessPaymentRequestDto request);
-	}
+    Task<bool> ProcessBookingPaymentAsync(ProcessPaymentRequestDto request);
 }

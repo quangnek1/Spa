@@ -2,9 +2,9 @@
 
 public enum PaymentMethod
 {
-	Cash,
-	VnPay,
-	Momo,
-	BankTransfer,
-	Stripe
+    Cash,
+    VnPay,
+    Momo,
+    BankTransfer,
+    Stripe
 }

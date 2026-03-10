@@ -7,7 +7,7 @@ Content-Type: application/json
 {
   "customerName": "Nguyen Van Test",
   "customerPhone": "0901234567",
-  "servicePackageId": 1, 
+  "servicePackageId": 1,
   "scheduledStartTime": "2026-03-15T10:00:00Z",
   "notes": "Nho chuan bi phong VIP"
 }

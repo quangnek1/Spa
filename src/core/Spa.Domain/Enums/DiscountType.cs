@@ -1,8 +1,7 @@
-﻿namespace Spa.Domain.Enums
+﻿namespace Spa.Domain.Enums;
+
+public enum DiscountType
 {
-	public enum DiscountType
-	{
-		Percentage,
-		FixedAmount
-	}
+    Percentage,
+    FixedAmount
 }
