@@ -1,9 +1,18 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Scalar.AspNetCore;
 using Serilog;
+using Spa.Application.Interfaces;
+using Spa.Application.Services;
 using Spa.Domain.Entities.Identity;
+using Spa.Domain.Repositories;
 using Spa.Infrastructure.Common;
 using Spa.Infrastructure.Data;
+using Spa.Infrastructure.Repositories;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog(Serilogger.Configure);
@@ -30,6 +39,34 @@ try
 
 	// 3. Đăng ký class Seeder vào DI Container
 	builder.Services.AddScoped<SpaDbInitializer>();
+	builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+	builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+	builder.Services.AddScoped<ISpaManagerService, SpaManagerService>();
+	builder.Services.AddScoped<IBookingService, BookingService>();
+	builder.Services.AddScoped<IPaymentService, PaymentService>();
+	builder.Services.AddScoped<IAuthService, AuthService>();
+
+	builder.Services.AddAuthentication(options =>
+	{
+		options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+		options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+		options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+	})
+		.AddJwtBearer(options =>
+		{
+			options.SaveToken = true;
+			options.RequireHttpsMetadata = false;
+			options.TokenValidationParameters = new TokenValidationParameters()
+			{
+				ValidateIssuer = false,
+				ValidateAudience = false,
+				ValidateLifetime = true,
+				ValidateIssuerSigningKey = true,
+				IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]!))
+			};
+		});
+	StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
+
 
 	builder.Services.AddControllers();
 	// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -58,11 +95,12 @@ try
 	if (app.Environment.IsDevelopment())
 	{
 		app.MapOpenApi();
-
+		app.MapScalarApiReference();
 	}
 
-	app.UseHttpsRedirection();
+	//app.UseHttpsRedirection();
 
+	app.UseAuthentication();
 	app.UseAuthorization();
 
 	app.MapControllers();

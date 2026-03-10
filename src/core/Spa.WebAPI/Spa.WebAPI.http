@@ -1,6 +1,32 @@
-@Spa.WebAPI_HostAddress = http://localhost:5236
+﻿@HostAddress = http://localhost:5236
 
-GET {{Spa.WebAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+### 1. Tao Booking moi
+POST {{HostAddress}}/api/Bookings
+Content-Type: application/json
 
-###
+{
+  "customerName": "Nguyen Van Test",
+  "customerPhone": "0901234567",
+  "servicePackageId": 1, 
+  "scheduledStartTime": "2026-03-15T10:00:00Z",
+  "notes": "Nho chuan bi phong VIP"
+}
+
+### 2. Dang nhap lay Token
+POST {{HostAddress}}/api/Auth/login
+Content-Type: application/json
+{
+  "email": "admin@hanahspa.com",
+  "password": "Admin@123!"
+}
+
+### 3. Thanh toan (NHO DAN TOKEN VAO DAY)
+POST {{HostAddress}}/api/Payments/process
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjY0YTE2Zjc4LTI0ZmMtNDlhYi05N2NmLTA4ZGU3ZGNhZjc5ZiIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGhhbmFoc3BhLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJIYW5haCBBZG1pbiIsImp0aSI6ImVlNDYxNDk4LWMxMTAtNDk5NC04ZDc2LTA2ZGRjMDVhMTZmYiIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmF0b3IiLCJleHAiOjE3NzM3MTc0OTV9.4LXXGkE5f0KrYk98QM7Xu-iCm4RfUY6ZeEG8QsRnHX4
+{
+  "bookingId": 1,
+  "amountPaid": 300000,
+  "paymentMethod": "Cash",
+  "transactionId": "TXN_TEST_001"
+}

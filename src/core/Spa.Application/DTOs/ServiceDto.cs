@@ -6,6 +6,7 @@ public class ServiceDto
     public string Name { get; set; } = default!;
     public string Slug { get; set; } = default!;
     public string Image { get; set; } = default!;
+    public string Description { get; set; } = default!;
     public string ShortDescription { get; set; } = default!;
     
     // Gom các Package thành danh sách giá cơ bản để hiển thị

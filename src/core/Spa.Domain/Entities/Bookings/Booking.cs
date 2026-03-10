@@ -23,7 +23,8 @@ public class Booking : EntityAuditBase<int>
 	public int? StaffId { get; set; } // Khách chọn kỹ thuật viên (nếu có)
 	public int? CouponId { get; set; } // Lưu lại mã giảm giá đã dùng
 
-	public int Discount { get; set; }
+	[Column(TypeName = "decimal(12,2)")]
+	public decimal DiscountAmount { get; set; }
 	[Column(TypeName = "decimal(12,2)")]
 	public decimal TotalPrice { get; set; }
 	[Column(TypeName = "decimal(12,2)")]
