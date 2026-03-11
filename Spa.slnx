@@ -2,10 +2,10 @@
     <Folder Name="/Solution Items/">
         <File Path="global.json" />
         <File Path="README.md" />
-    </Folder>
-    <Folder Name="/src/">
+        <File Path="src/docker-compose.override.yml" />
         <File Path="src\docker-compose.yml" />
     </Folder>
+    <Folder Name="/src/" />
     <Folder Name="/src/core/">
         <Project Path="src/core/Spa.Application/Spa.Application.csproj" />
         <Project Path="src/core/Spa.Domain/Spa.Domain.csproj" />

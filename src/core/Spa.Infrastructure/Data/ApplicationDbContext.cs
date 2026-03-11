@@ -20,8 +20,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
     {
     }
 
-    // 1. Users & Staff
-    public DbSet<Staff> Staffs { get; set; }
+	// 1. Users & Staff & Identity
+	public DbSet<Staff> Staffs { get; set; }
+	public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     // 2. Services
     public DbSet<Category> Categories { get; set; }

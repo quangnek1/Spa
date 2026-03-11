@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 
 namespace Spa.Infrastructure.Data;
 
@@ -7,12 +8,16 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<Applicatio
 {
     public ApplicationDbContext CreateDbContext(string[] args)
     {
-        var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+		var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+		var configuration = new ConfigurationBuilder()
+	                       .SetBasePath(Directory.GetCurrentDirectory())
+	                       .AddJsonFile("appsettings.json")
+	                       .AddJsonFile($"appsettings.{environment}.json", true)
+	                       .Build();
 
-        // Bạn copy chính xác chuỗi kết nối trong appsettings.json của bạn dán vào đây
-        var connectionString =
-            "Server=172.16.33.123;Database=SPA;User Id=aih;Password=123456;Persist Security Info=True;MultipleActiveResultSets=True;TrustServerCertificate=True;";
+		var connectionString = configuration.GetConnectionString("DefaultConnection");
 
+		var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
         optionsBuilder.UseSqlServer(connectionString);
 
         return new ApplicationDbContext(optionsBuilder.Options);

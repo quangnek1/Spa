@@ -1,8 +1,22 @@
-version: "3.8"
+version: "3.9"
 
 services:
   #database section
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    
-  #
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver-dev
+    environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=YourStrong!Passw0rd
+    ports:
+        - "1435:1433" #Port 1433:1433 bi loi
+    volumes:
+        - sqlserver_data:/var/opt/mssql
+  #adminer section UI for database management
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+# volumes section for persisting database data
+volumes:
+    sqlserver_data:
