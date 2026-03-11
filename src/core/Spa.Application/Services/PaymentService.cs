@@ -1,4 +1,4 @@
-﻿using Spa.Application.DTOs;
+﻿using Spa.Application.DTOs.Bookings;
 using Spa.Application.Interfaces;
 using Spa.Domain.Entities.Payments;
 using Spa.Domain.Enums;

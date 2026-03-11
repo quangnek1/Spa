@@ -2,7 +2,6 @@
     <Folder Name="/Solution Items/">
         <File Path="global.json" />
         <File Path="README.md" />
-        <File Path="src/docker-compose.override.yml" />
         <File Path="src\docker-compose.yml" />
     </Folder>
     <Folder Name="/src/" />

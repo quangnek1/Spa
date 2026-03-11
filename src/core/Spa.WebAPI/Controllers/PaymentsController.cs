@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Spa.Application.DTOs;
+using Spa.Application.DTOs.Bookings;
 using Spa.Application.Interfaces;
 using Stripe;
 using Stripe.Checkout;

@@ -1,4 +1,4 @@
-﻿namespace Spa.Application.DTOs;
+﻿namespace Spa.Application.DTOs.Bookings;
 
 public class ProcessPaymentRequestDto
 {

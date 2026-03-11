@@ -1,4 +1,4 @@
-﻿namespace Spa.Application.DTOs;
+﻿namespace Spa.Application.DTOs.Bookings;
 
 // Đặt trong thư mục DTOs
 public class CreateStripeSessionRequestDto

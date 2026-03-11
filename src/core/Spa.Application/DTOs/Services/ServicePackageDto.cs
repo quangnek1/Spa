@@ -1,4 +1,4 @@
-namespace Spa.Application.DTOs;
+namespace Spa.Application.DTOs.Services;
 
 public class ServicePackageDto
 {

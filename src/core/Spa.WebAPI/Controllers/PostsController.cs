@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Spa.Application.DTOs;
+using Spa.Application.DTOs.Posts;
 using Spa.Application.Interfaces;
 
 namespace Spa.WebAPI.Controllers;

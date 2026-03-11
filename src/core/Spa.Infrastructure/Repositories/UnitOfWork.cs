@@ -45,8 +45,11 @@ public class UnitOfWork : IUnitOfWork
     public IGenericRepository<FAQ> FAQs => new GenericRepository<FAQ>(_context);
 
     public IGenericRepository<Staff> Staffs => new GenericRepository<Staff>(_context);
+    public IGenericRepository<RefreshToken> RefreshTokens => new GenericRepository<RefreshToken>(_context);
 
-    public async Task<int> SaveChangesAsync()
+    // Identity
+
+	public async Task<int> SaveChangesAsync()
     {
         return await _context.SaveChangesAsync();
     }

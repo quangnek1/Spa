@@ -1,4 +1,4 @@
-﻿using Spa.Application.DTOs;
+﻿using Spa.Application.DTOs.Bookings;
 
 namespace Spa.Application.Interfaces;
 

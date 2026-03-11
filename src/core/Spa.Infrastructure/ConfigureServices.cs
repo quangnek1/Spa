@@ -24,7 +24,7 @@ public static class ConfigureServices
 		var connectionString = configuration.GetConnectionString("DefaultConnection");
 		services.AddDbContext<ApplicationDbContext>(options =>
 		{
-			options.UseSqlServer(configuration.GetConnectionString(connectionString),
+			options.UseSqlServer(connectionString,
 			 builder => builder.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName));
 		});
 
@@ -55,8 +55,10 @@ public static class ConfigureServices
 				options.RequireHttpsMetadata = false;
 				options.TokenValidationParameters = new TokenValidationParameters
 				{
-					ValidateIssuer = false,
-					ValidateAudience = false,
+					ValidateIssuer = true,
+					ValidateAudience = true,
+					ValidIssuer = configuration["JWT:ValidIssuer"],
+					ValidAudience = configuration["JWT:ValidAudience"],
 					ValidateLifetime = true,
 					ValidateIssuerSigningKey = true,
 					IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]!))

@@ -37,6 +37,7 @@ public interface IUnitOfWork : IDisposable
 
     // Users
     IGenericRepository<Staff> Staffs { get; }
+    IGenericRepository<RefreshToken> RefreshTokens { get; }
 
     Task<int> SaveChangesAsync();
     Task BeginTransactionAsync();
