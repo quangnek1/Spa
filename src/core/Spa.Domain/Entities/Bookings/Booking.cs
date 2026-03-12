@@ -14,9 +14,7 @@ public class Booking : EntityAuditBase<int>
 
     // Thêm thông tin khách vãng lai
     [Column(TypeName = "nvarchar(250)")] public string? CustomerName { get; set; } = default!;
-
     [Column(TypeName = "varchar(20)")] public string? CustomerPhone { get; set; } = default!;
-
     [Column(TypeName = "varchar(250)")]
     public string? CustomerEmail { get; set; } // Cần để gửi email xác nhận và receipt Stripe
 
@@ -25,11 +23,8 @@ public class Booking : EntityAuditBase<int>
     public int? CouponId { get; set; } // Lưu lại mã giảm giá đã dùng
 
     [Column(TypeName = "decimal(12,2)")] public decimal DiscountAmount { get; set; }
-
     [Column(TypeName = "decimal(12,2)")] public decimal TotalPrice { get; set; }
-
     [Column(TypeName = "decimal(12,2)")] public decimal DepositAmount { get; set; }
-
     [Column(TypeName = "decimal(12,2)")] public decimal RemainingAmount { get; set; }
 
     public DateTime ScheduledStartTime { get; set; }
@@ -37,10 +32,13 @@ public class Booking : EntityAuditBase<int>
     public DateTime? ActualStartTime { get; set; }
     public DateTime? ActualEndTime { get; set; }
     public int DurationMinutes { get; set; }
+
+    public PaymentMethod PaymentMethod { get; set; }
     public BookingStatus Status { get; set; }
 
     [Column(TypeName = "nvarchar(500)")] public string? Notes { get; set; } // Ghi chú của khách hàng khi đặt
 
+// navigation
     public ApplicationUser? User { get; set; }
     public ServicePackage? ServicePackage { get; set; }
 

@@ -4,9 +4,7 @@ using Spa.Application.Interfaces;
 
 namespace Spa.WebAPI.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
-public class BookingsController : ControllerBase
+public class BookingsController : BaseController
 {
     private readonly IBookingService _bookingService;
 

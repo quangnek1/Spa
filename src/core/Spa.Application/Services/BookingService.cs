@@ -1,4 +1,5 @@
-﻿using Spa.Application.DTOs.Bookings;
+﻿using AutoMapper;
+using Spa.Application.DTOs.Bookings;
 using Spa.Application.Interfaces;
 using Spa.Domain.Entities.Bookings;
 using Spa.Domain.Enums;
@@ -9,10 +10,12 @@ namespace Spa.Application.Services;
 public class BookingService : IBookingService
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
 
-    public BookingService(IUnitOfWork unitOfWork)
+    public BookingService(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _unitOfWork = unitOfWork;
+        _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        _mapper = mapper  ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     public async Task<bool> CheckAvailabilityAsync(DateTime startTime, int durationMinutes)
@@ -90,27 +93,40 @@ public class BookingService : IBookingService
         if (finalPrice < 0) finalPrice = 0;
 
         // 5. Tạo Entity Booking
-        var booking = new Booking
-        {
-            UserId = request.UserId,
-            CustomerName = request.CustomerName ?? "Khách vãng lai",
-            CustomerPhone = request.CustomerPhone ?? "",
-            CustomerEmail = request.CustomerEmail,
-            ServicePackageId = request.ServicePackageId,
-            StaffId = request.StaffId,
-            CouponId = validCouponId,
-
-            TotalPrice = package.Price,
-            //	DiscountAmount = discountAmount,
-            RemainingAmount = finalPrice, // Giả sử khách chưa trả cọc, tiền còn lại = tiền thực thu
-            DepositAmount = 0,
-
-            ScheduledStartTime = request.ScheduledStartTime,
-            ScheduledEndTime = endTime,
-            DurationMinutes = package.DurationMinutes,
-            Notes = request.Notes,
-            Status = BookingStatus.Pending // Chờ thanh toán Stripe
-        };
+        var booking = _mapper.Map<Booking>(request);
+        // Ghi đè các thông tin nghiệp vụ mà Frontend không được phép tự quyết định
+        booking.CustomerName = request.CustomerName ?? "Khách vãng lai";
+        booking.CustomerPhone = request.CustomerPhone ?? "";
+        booking.CouponId = validCouponId;
+        booking.TotalPrice = package.Price;
+        booking.DiscountAmount = discountAmount;
+        booking.RemainingAmount = finalPrice;
+        booking.DepositAmount = 0;
+        booking.ScheduledEndTime = endTime;
+        booking.DurationMinutes = package.DurationMinutes;
+        booking.Status = BookingStatus.Pending;
+        
+        // var booking = new Booking
+        // {
+        //     UserId = request.UserId,
+        //     CustomerName = request.CustomerName ?? "Khách vãng lai",
+        //     CustomerPhone = request.CustomerPhone ?? "",
+        //     CustomerEmail = request.CustomerEmail,
+        //     ServicePackageId = request.ServicePackageId,
+        //     StaffId = request.StaffId,
+        //     CouponId = validCouponId,
+        //
+        //     TotalPrice = package.Price,
+        //     DiscountAmount = discountAmount,
+        //     RemainingAmount = finalPrice, // Giả sử khách chưa trả cọc, tiền còn lại = tiền thực thu
+        //     DepositAmount = 0,
+        //
+        //     ScheduledStartTime = request.ScheduledStartTime,
+        //     ScheduledEndTime = endTime,
+        //     DurationMinutes = package.DurationMinutes,
+        //     Notes = request.Notes,
+        //     Status = BookingStatus.Pending // Chờ thanh toán Stripe
+        // };
 
         // 6. Lưu vào Database (Sử dụng Transaction để đảm bảo an toàn)
         await _unitOfWork.BeginTransactionAsync();
@@ -128,19 +144,20 @@ public class BookingService : IBookingService
         }
 
         // 7. Map sang DTO trả về cho Frontend
-        return new BookingResponseDto
-        {
-            Id = booking.Id,
-            CustomerName = booking.CustomerName,
-            ServiceName = package.Service?.Name ?? "Dịch vụ Spa",
-            DurationMinutes = booking.DurationMinutes,
-            ScheduledStartTime = booking.ScheduledStartTime,
-            ScheduledEndTime = booking.ScheduledEndTime,
-            TotalPrice = booking.TotalPrice,
-            //	DiscountAmount = booking.DiscountAmount,
-            FinalAmount = booking.RemainingAmount,
-            Status = booking.Status
-        };
+        return _mapper.Map<BookingResponseDto>(booking);
+        // return new BookingResponseDto
+        // {
+        //     Id = booking.Id,
+        //     CustomerName = booking.CustomerName,
+        //     ServiceName = package.Service?.Name ?? "Dịch vụ Spa",
+        //     DurationMinutes = booking.DurationMinutes,
+        //     ScheduledStartTime = booking.ScheduledStartTime,
+        //     ScheduledEndTime = booking.ScheduledEndTime,
+        //     TotalPrice = booking.TotalPrice,
+        //     //	DiscountAmount = booking.DiscountAmount,
+        //     FinalAmount = booking.RemainingAmount,
+        //     Status = booking.Status
+        // };
     }
 
     public async Task<BookingResponseDto?> GetBookingByIdAsync(int bookingId)

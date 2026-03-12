@@ -6,5 +6,6 @@ public enum PaymentMethod
     VnPay,
     Momo,
     BankTransfer,
-    Stripe
+    Stripe,
+    PayAtSpa
 }

@@ -12,8 +12,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public GenericRepository(ApplicationDbContext context)
     {
-        _context = context;
-        dbSet = _context.Set<T>();
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+        dbSet = _context.Set<T>() ??  throw new ArgumentNullException(nameof(context));
     }
 
     public async Task<T?> GetByIdAsync(object id)
