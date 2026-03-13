@@ -8,8 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Spa.Application.DTOs.Auth;
 using Spa.Application.Interfaces;
+using Spa.Application.Seedwork;
 using Spa.Domain.Entities.Identity;
-using Spa.Domain.Repositories;
 
 namespace Spa.Application.Services;
 

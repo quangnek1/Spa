@@ -57,7 +57,7 @@ public class PaymentsController : ControllerBase
                     PriceData = new SessionLineItemPriceDataOptions
                     {
                         UnitAmount = amountToPay, // Stripe VND không dùng số thập phân, 300k = 300000
-                        Currency = "vnd", // Chơi tiền Việt luôn
+                        Currency = "aud", // Chơi tiền Việt luôn
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = serviceName,

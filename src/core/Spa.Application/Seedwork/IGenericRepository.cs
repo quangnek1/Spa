@@ -1,14 +1,15 @@
 ﻿using System.Linq.Expressions;
 
-namespace Spa.Domain.Repositories;
+namespace Spa.Application.Seedwork;
 
 public interface IGenericRepository<T> where T : class
 {
     Task<T?> GetByIdAsync(object id);
-    Task<IEnumerable<T>> GetAllAsync();
+	IQueryable<T> GetAll(bool trackChanges = false);
+	IQueryable<T> GetAll(bool trackChanges = false, params Expression<Func<T, object>>[] includeProperties);
 
-    // Nâng cấp: Cho phép truyền lambda expression để lọc và Include các bảng con
-    Task<IEnumerable<T>> FindAsync(
+	// Nâng cấp: Cho phép truyền lambda expression để lọc và Include các bảng con
+	Task<IEnumerable<T>> FindAsync(
         Expression<Func<T, bool>> expression,
         params Expression<Func<T, object>>[] includes);
 

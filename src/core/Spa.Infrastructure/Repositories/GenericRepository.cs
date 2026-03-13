@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
-using Spa.Domain.Repositories;
+using Spa.Application.Seedwork;
 using Spa.Infrastructure.Data;
 
 namespace Spa.Infrastructure.Repositories;
@@ -8,7 +8,7 @@ namespace Spa.Infrastructure.Repositories;
 public class GenericRepository<T> : IGenericRepository<T> where T : class
 {
     protected readonly ApplicationDbContext _context;
-    internal DbSet<T> dbSet;
+    protected DbSet<T> dbSet;
 
     public GenericRepository(ApplicationDbContext context)
     {
@@ -21,12 +21,16 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         return await dbSet.FindAsync(id);
     }
 
-    public async Task<IEnumerable<T>> GetAllAsync()
-    {
-        return await dbSet.ToListAsync();
-    }
+	public IQueryable<T> GetAll(bool trackChanges = false) => !trackChanges ? _context.Set<T>().AsNoTracking() : _context.Set<T>();
+	public IQueryable<T> GetAll(bool trackChanges = false, params Expression<Func<T, object>>[] includeProperties)
+	{
+		var items = GetAll(trackChanges);
+		items = includeProperties.Aggregate(items, (current, includeProperty) => current.Include(includeProperty));
+		return items;
+	}
 
-    public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression,
+
+	public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> expression,
         params Expression<Func<T, object>>[] includes)
     {
         IQueryable<T> query = dbSet;
@@ -68,4 +72,6 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         dbSet.RemoveRange(entities);
     }
+
+	
 }

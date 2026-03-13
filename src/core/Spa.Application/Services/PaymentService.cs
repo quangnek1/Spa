@@ -1,8 +1,9 @@
 ﻿using Spa.Application.DTOs.Bookings;
 using Spa.Application.Interfaces;
+using Spa.Application.Seedwork;
 using Spa.Domain.Entities.Payments;
 using Spa.Domain.Enums;
-using Spa.Domain.Repositories;
+ 
 
 namespace Spa.Application.Services;
 
@@ -15,7 +16,20 @@ public class PaymentService : IPaymentService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<bool> ProcessBookingPaymentAsync(ProcessPaymentRequestDto request)
+	public async Task<string> GenerateStripeSessionAsync(BookingResponseDto bookingDto)
+	{
+		// 1. Lấy thông tin Booking từ Database (thực tế bạn sẽ gọi IUnitOfWork ở đây)
+        var booking = _unitOfWork.Bookings.GetByIdAsync(bookingDto.Id).Result; // Dùng .Result để lấy kết quả đồng bộ, tránh async/await ở đây cho dễ test
+		
+        var amountInCents = (long)(booking.TotalPrice * 100);
+
+		var options = new SessionCreateOptions
+        {
+
+        }
+	}
+
+	public async Task<bool> ProcessBookingPaymentAsync(ProcessPaymentRequestDto request)
     {
         var booking = await _unitOfWork.Bookings.GetByIdAsync(request.BookingId);
         if (booking == null) throw new Exception("Không tìm thấy đơn đặt lịch.");

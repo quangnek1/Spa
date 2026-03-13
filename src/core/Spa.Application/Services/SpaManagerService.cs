@@ -1,7 +1,7 @@
 ﻿using Spa.Application.DTOs;
 using Spa.Application.DTOs.Services;
 using Spa.Application.Interfaces;
-using Spa.Domain.Repositories;
+using Spa.Application.Seedwork;
 
 namespace Spa.Application.Services;
 
