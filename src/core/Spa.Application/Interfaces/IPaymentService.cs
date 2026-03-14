@@ -5,5 +5,5 @@ namespace Spa.Application.Interfaces;
 public interface IPaymentService
 {
     Task<bool> ProcessBookingPaymentAsync(ProcessPaymentRequestDto request);
-    Task<string> GenerateStripeSessionAsync(BookingResponseDto bookingDto);
+    Task<StripeSessionResponseDto> GenerateStripeSessionAsync(BookingResponseDto bookingDto);
 }

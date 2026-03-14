@@ -3,7 +3,6 @@
 ### 1. Tao Booking moi
 POST {{HostAddress}}/api/Bookings
 Content-Type: application/json
-
 {
   "customerName": "Nguyen Van Test",
   "customerPhone": "0901234567",

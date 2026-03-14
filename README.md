@@ -8,5 +8,5 @@
 
 	dotnet ef migrations remove --project core\Spa.Infrastructure --startup-project core\Spa.WebAPI
 
-	dotnet ef database update --project core\Spa.Infrastructure --startup-project core\Spa.WebAPI
+	dotnet ef database update --project core/Spa.Infrastructure --startup-project core/Spa.WebAPI
 

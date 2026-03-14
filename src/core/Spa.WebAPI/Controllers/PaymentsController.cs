@@ -14,10 +14,12 @@ namespace Spa.WebAPI.Controllers;
 public class PaymentsController : ControllerBase
 {
     private readonly IPaymentService _paymentService;
+    private readonly IConfiguration _configuration;
 
-    public PaymentsController(IPaymentService paymentService)
+    public PaymentsController(IPaymentService paymentService, IConfiguration configuration)
     {
         _paymentService = paymentService ?? throw new ArgumentNullException(nameof(paymentService));
+        _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
     }
 
     [HttpPost("process")]
@@ -57,7 +59,7 @@ public class PaymentsController : ControllerBase
                     PriceData = new SessionLineItemPriceDataOptions
                     {
                         UnitAmount = amountToPay, // Stripe VND không dùng số thập phân, 300k = 300000
-                        Currency = "aud", // Chơi tiền Việt luôn
+                        Currency = "vnd", // Chơi tiền Việt luôn
                         ProductData = new SessionLineItemPriceDataProductDataOptions
                         {
                             Name = serviceName,
@@ -93,66 +95,41 @@ public class PaymentsController : ControllerBase
     {
         var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
 
-        // Lấy cái mã bí mật Webhook mà bạn vừa cấu hình trong appsettings.json
-        //var endpointSecret = _configuration["Stripe:WebhookSecret"];
-        //var signatureHeader = Request.Headers["Stripe-Signature"];
-        //var stripeEvent = EventUtility.ConstructEvent(json, signatureHeader, endpointSecret);
-
-
         try
         {
-            // Kiểm tra xem có đúng là thư do chính Stripe gửi không (chống fake)
-            //var stripeEvent = EventUtility.ParseEvent(json);
+            // Lấy cái mã bí mật Webhook mà bạn vừa cấu hình trong appsettings.json
+            var endpointSecret = _configuration["Stripe:WebhookSecret"];
+            var signatureHeader = Request.Headers["Stripe-Signature"];
+            var stripeEvent = EventUtility.ConstructEvent(json, signatureHeader, endpointSecret);
+            
+            Console.WriteLine("Webhook received");
+            Console.WriteLine(stripeEvent.Type);
 
-            //// Bắt đúng sự kiện "Khách đã thanh toán thành công"
-            //if (stripeEvent.Type == "checkout.session.completed")
-            //{
-            //	var session = stripeEvent.Data.Object as Stripe.Checkout.Session;
-
-            //	// Moi cái BookingId mà lúc nãy ta đã nhét vào Metadata ra
-            //	var bookingIdString = session.Metadata["BookingId"];
-
-            //	if (int.TryParse(bookingIdString, out int bookingId))
-            //	{
-            //		// TIỀN ĐÃ VỀ! GỌI SERVICE CẬP NHẬT DATABASE THÔI!
-            //		var paymentRequest = new ProcessPaymentRequestDto
-            //		{
-            //			BookingId = bookingId,
-            //			AmountPaid = (decimal)(session.AmountTotal / 100), // Stripe tính bằng cent/hào, nên chia 100 nếu dùng tiền USD, nếu VND thì giữ nguyên. Do nãy ta set VND nên không cần chia, sửa lại thành: (decimal)session.AmountTotal
-            //			PaymentMethod = "Stripe",
-            //			TransactionId = session.Id
-            //		};
-
-            //		await _paymentService.ProcessBookingPaymentAsync(paymentRequest);
-
-            //		// Bạn có thể log ra console để ăn mừng
-            //		Console.WriteLine($"[WEBHOOK] Đã nhận tiền thành công cho Booking #{bookingId}");
-            //	}
-            //}
-            using var jsonDoc = JsonDocument.Parse(json);
-            var root = jsonDoc.RootElement;
-            var eventType = root.GetProperty("type").GetString();
-
-            if (eventType == "checkout.session.completed")
+            //  Bắt đúng sự kiện "Khách đã thanh toán thành công"
+            if (stripeEvent.Type == "checkout.session.completed")
             {
-                var dataObj = root.GetProperty("data").GetProperty("object");
-                var bookingIdString = dataObj.GetProperty("metadata").GetProperty("BookingId").GetString();
-                var amountTotal = dataObj.GetProperty("amount_total").GetDecimal();
-                var transactionId = dataObj.GetProperty("id").GetString();
+                var session = stripeEvent.Data.Object as Stripe.Checkout.Session;
 
-                if (int.TryParse(bookingIdString, out var bookingId))
+                // Moi cái BookingId mà lúc nãy ta đã nhét vào Metadata ra
+                var bookingIdString = session.Metadata["BookingId"];
+
+                if (int.TryParse(bookingIdString, out int bookingId))
                 {
+                    // TIỀN ĐÃ VỀ! GỌI SERVICE CẬP NHẬT DATABASE THÔI!
                     var paymentRequest = new ProcessPaymentRequestDto
                     {
                         BookingId = bookingId,
-                        AmountPaid = amountTotal,
+                        AmountPaid =
+                            (decimal)(session.AmountTotal /
+                                      100), // Stripe tính bằng cent/hào, nên chia 100 nếu dùng tiền USD, nếu VND thì giữ nguyên. Do nãy ta set VND nên không cần chia, sửa lại thành: (decimal)session.AmountTotal
                         PaymentMethod = "Stripe",
-                        TransactionId = transactionId
+                        TransactionId = session.Id
                     };
 
                     await _paymentService.ProcessBookingPaymentAsync(paymentRequest);
-                    Console.WriteLine(
-                        $"[WEBHOOK] Ting ting! Đã update Database thành công cho Booking #{bookingId}. Thu về: {amountTotal} VND");
+
+                    // Bạn có thể log ra console để ăn mừng
+                    Console.WriteLine($"[WEBHOOK] Đã nhận tiền thành công cho Booking #{bookingId}");
                 }
             }
 

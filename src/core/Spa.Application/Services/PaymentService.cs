@@ -10,23 +10,17 @@ namespace Spa.Application.Services;
 public class PaymentService : IPaymentService
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IPaymentGateway _paymentGateway;
 
-    public PaymentService(IUnitOfWork unitOfWork)
+    public PaymentService(IUnitOfWork unitOfWork, IPaymentGateway paymentGateway)
     {
-        _unitOfWork = unitOfWork;
+        _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        _paymentGateway = paymentGateway ?? throw new ArgumentNullException(nameof(paymentGateway));
     }
 
-	public async Task<string> GenerateStripeSessionAsync(BookingResponseDto bookingDto)
+	public async Task<StripeSessionResponseDto> GenerateStripeSessionAsync(BookingResponseDto bookingDto)
 	{
-		// 1. Lấy thông tin Booking từ Database (thực tế bạn sẽ gọi IUnitOfWork ở đây)
-        var booking = _unitOfWork.Bookings.GetByIdAsync(bookingDto.Id).Result; // Dùng .Result để lấy kết quả đồng bộ, tránh async/await ở đây cho dễ test
-		
-        var amountInCents = (long)(booking.TotalPrice * 100);
-
-		var options = new SessionCreateOptions
-        {
-
-        }
+        return await _paymentGateway.CreateStripeSessionUrlAsync(bookingDto);
 	}
 
 	public async Task<bool> ProcessBookingPaymentAsync(ProcessPaymentRequestDto request)

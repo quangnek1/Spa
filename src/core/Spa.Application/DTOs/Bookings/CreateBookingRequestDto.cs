@@ -16,7 +16,7 @@ public class CreateBookingRequestDto : IMapFrom<Booking>
 	public int? StaffId { get; set; }
 	public string? CouponCode { get; set; }
 	
-	public PaymentMethod PaymentMethod { get; set; } = PaymentMethod.PayAtSpa;
+	public PaymentMethod PaymentMethod { get; set; } 
 
 	public DateTime ScheduledStartTime { get; set; }
 	public string? Notes { get; set; }

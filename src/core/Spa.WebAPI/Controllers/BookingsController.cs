@@ -29,16 +29,21 @@ public class BookingsController : BaseController
 			// 2. GỌI SERVICE 2: Xử lý Thanh toán
 			if (request.PaymentMethod == PaymentMethod.Stripe)
 			{
-				var stripeUrl = await _paymentService.GenerateStripeSessionAsync(bookingResponse);
+				var stripeSection = await _paymentService.GenerateStripeSessionAsync(bookingResponse);
 
 				return Ok(new
 				{
 					message = "Đang chuyển hướng thanh toán...",
-					redirectUrl = stripeUrl
+					redirectUrl = stripeSection.SessionUrl,
+					stripeSessionId = stripeSection.SessionId
 				});
 			}
 
-			return Ok(result);
+			return Ok(new
+			{
+				message = "Đặt lịch thành công! Vui lòng thanh toán tại quầy khi đến Spa.",
+				redirectUrl = "/booking/success" // Trả về đường dẫn trang Cảm ơn của Next.js
+			});
         }
         catch (Exception ex)
         {
