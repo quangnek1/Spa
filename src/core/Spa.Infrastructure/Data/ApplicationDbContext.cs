@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Spa.Domain.Common;
 using Spa.Domain.Common.InterFaces;
 using Spa.Domain.Entities.Bookings;
 using Spa.Domain.Entities.Customers;
@@ -20,9 +21,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
     {
     }
 
-	// 1. Users & Staff & Identity
-	public DbSet<Staff> Staffs { get; set; }
-	public DbSet<RefreshToken> RefreshTokens { get; set; }
+    // 1. Users & Staff & Identity
+    public DbSet<Staff> Staffs { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     // 2. Services
     public DbSet<Category> Categories { get; set; }
@@ -61,6 +62,35 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
         builder.Entity<IdentityUserLogin<Guid>>().ToTable("UserLogins");
         builder.Entity<IdentityRoleClaim<Guid>>().ToTable("RoleClaims");
         builder.Entity<IdentityUserToken<Guid>>().ToTable("UserTokens");
+
+        foreach (var entityType in builder.Model.GetEntityTypes())
+        {
+            // 1. Kiểm tra xem Entity có kế thừa từ EntityBase<> không
+            var baseType = entityType.ClrType.BaseType;
+            if (baseType != null && baseType.IsGenericType &&
+                baseType.GetGenericTypeDefinition() == typeof(EntityBase<>))
+            {
+                // 2. Lấy kiểu dữ liệu của T (kiểu của thuộc tính Id)
+                var idType = baseType.GetGenericArguments()[0];
+
+                // 3. Nếu là kiểu số nguyên (int, long, short...) thì cấu hình Identity
+                if (idType == typeof(int) || idType == typeof(long) || idType == typeof(short))
+                {
+                    builder.Entity(entityType.ClrType)
+                        .Property("Id")
+                        .ValueGeneratedOnAdd() // Tự tăng (Identity)
+                        .UseIdentityColumn(); // Cụ thể cho SQL Server
+                }
+                else
+                {
+                    // Nếu là string hoặc Guid, không cấu hình tự tăng (Identity)
+                    // Hoặc cấu hình khác tùy ý bạn ở đây
+                    builder.Entity(entityType.ClrType)
+                        .Property("Id")
+                        .ValueGeneratedNever();
+                }
+            }
+        }
 
         #region SEO Indexing (Tối ưu tốc độ query cho Next.js)
 

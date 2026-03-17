@@ -9,4 +9,8 @@ public interface ISpaManagerService
 
     // Lấy chi tiết 1 dịch vụ theo Slug (Dùng cho trang chi tiết Next.js)
     Task<ServiceDto?> GetServiceBySlugAsync(string slug);
+    
+    Task<ServiceDto> CreateServiceAsync(CreateServiceDto request);
+    Task<bool> UpdateServiceAsync(int id, ServiceDto request);
+    Task<bool> DeleteServiceAsync(int id);
 }

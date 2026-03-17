@@ -42,6 +42,7 @@ public class AuthService : IAuthService
 		var refreshToken = GenerateRefreshToken();
 		await _unitOfWork.RefreshTokens.AddAsync(new RefreshToken
 		{
+			Id = Guid.NewGuid(),
 			Token = refreshToken,
 			UserId = user.Id,
 			ExpiryDate = DateTime.UtcNow.AddDays(30) // Refresh Token sống 30 ngày
@@ -53,7 +54,7 @@ public class AuthService : IAuthService
 			AccessToken = accessToken,
 			RefreshToken = refreshToken,
 			Email = user.Email!,
-			FullName = user.Name!,
+			FullName = user.FirstName!,
 			Roles = roles
 		};
 	}
@@ -142,7 +143,7 @@ public class AuthService : IAuthService
 			new("userName", user.UserName!),
 			new(ClaimTypes.NameIdentifier, user.Id.ToString()),
 			new(ClaimTypes.Email, user.Email!),
-			new(ClaimTypes.Name, user.Name!),
+			new(ClaimTypes.Name, user.FirstName!),
 			new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()) // ID duy nhất của token
         };
 
@@ -154,7 +155,7 @@ public class AuthService : IAuthService
 		var token = new JwtSecurityToken(
 			issuer: _configuration["JWT:ValidIssuer"],
 			audience: _configuration["JWT:ValidAudience"],
-			expires: DateTime.UtcNow.AddMinutes(5), // Access token sống 5 phút
+			expires: DateTime.UtcNow.AddMinutes(10), // Access token sống 5 phút
 			claims: authClaims,
 			signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
 		);

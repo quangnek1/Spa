@@ -1,17 +1,21 @@
-﻿using Spa.Application.DTOs;
+﻿using AutoMapper;
+using Spa.Application.DTOs;
 using Spa.Application.DTOs.Services;
 using Spa.Application.Interfaces;
 using Spa.Application.Seedwork;
+using Spa.Domain.Entities.Services;
 
 namespace Spa.Application.Services;
 
 public class SpaManagerService : ISpaManagerService
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
 
-    public SpaManagerService(IUnitOfWork unitOfWork)
+    public SpaManagerService(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        _unitOfWork = unitOfWork;
+        _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
     public async Task<IEnumerable<ServiceDto>> GetAllServicesWithPackagesAsync()
@@ -59,5 +63,33 @@ public class SpaManagerService : ISpaManagerService
                 Price = p.Price
             }).ToList()
         };
+    }
+
+    public async Task<ServiceDto> CreateServiceAsync(CreateServiceDto request)
+    {
+        var serviceEntity = _mapper.Map<Service>(request);
+        await _unitOfWork.Services.AddAsync(serviceEntity);
+        await _unitOfWork.SaveChangesAsync();
+
+        return _mapper.Map<ServiceDto>(serviceEntity);
+    }
+
+    public async Task<bool> UpdateServiceAsync(int id, ServiceDto request)
+    {
+        var serviceEntity = await _unitOfWork.Services.GetFirstOrDefaultAsync(s => s.Id == id);
+        if (serviceEntity == null) return false;
+        _mapper.Map(request, serviceEntity);
+        await _unitOfWork.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> DeleteServiceAsync(int id)
+    {
+        var serviceEntity = await _unitOfWork.Services.GetFirstOrDefaultAsync(s => s.Id == id);
+        if (serviceEntity == null) return false;
+
+        _unitOfWork.Services.Remove(serviceEntity);
+        await _unitOfWork.SaveChangesAsync();
+        return true;
     }
 }

@@ -69,6 +69,17 @@ public static class ConfigureServices
 
         // Add Stripe payment
         StripeConfiguration.ApiKey = configuration["Stripe:SecretKey"];
+        
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowFrontend", policy =>
+            {
+                policy.WithOrigins("http://localhost:3000") // front-end URL
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials(); // nếu dùng cookie hoặc auth
+            });
+        });
 
 
         return services;

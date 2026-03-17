@@ -20,6 +20,7 @@ try
     builder.Services.AddOpenApi();
 
     var app = builder.Build();
+    app.UseCors("AllowFrontend");
 
     // Chạy Seeder lúc khởi động ứng dụng
     using (var scope = app.Services.CreateScope())

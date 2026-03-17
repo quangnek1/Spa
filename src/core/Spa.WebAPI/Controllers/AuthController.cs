@@ -23,8 +23,8 @@ public class AuthController : BaseController
 		var cookieOptions = new CookieOptions
 		{
 			HttpOnly = true,
-			Secure = true,
-			SameSite = SameSiteMode.Strict,
+			Secure = false,
+			SameSite = SameSiteMode.None,
 			Expires = DateTime.UtcNow.AddDays(7)
 		};
 		Response.Cookies.Append("refreshToken", result.RefreshToken, cookieOptions);
@@ -32,9 +32,12 @@ public class AuthController : BaseController
 		return Ok(new
 		{
 			token = result.AccessToken,
-			email = result.Email,
-			fullName = result.FullName,
-			roles = result.Roles
+			User = new
+			{
+				email = result.Email,
+				fullName = result.FullName,
+				role = result.Roles[0]
+			}
 		});
 	}
 
