@@ -95,10 +95,10 @@ public static class ConfigureServices
         services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {
                 // Bạn có thể cấu hình rule mật khẩu ở đây nếu muốn
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
             })
             .AddEntityFrameworkStores<ApplicationDbContext>()

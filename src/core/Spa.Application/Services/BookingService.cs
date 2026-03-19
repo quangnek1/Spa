@@ -92,6 +92,14 @@ public class BookingService : IBookingService
 		var finalPrice = package.Price - discountAmount;
 		if (finalPrice < 0) finalPrice = 0;
 
+		// 🟢 THÊM LOGIC TÍNH DEPOSIT (CỌC 20%) Ở ĐÂY
+		decimal depositAmount = 0;
+		if (request.PaymentMethod == PaymentMethod.Stripe)
+		{
+			// Cọc 20% trên tổng tiền phải trả (sau khi đã trừ discount)
+			depositAmount = Math.Round(finalPrice * 0.20m, 2); 
+		}
+
 		// 5. Tạo Entity Booking
 		var booking = _mapper.Map<Booking>(request);
 		// Ghi đè các thông tin nghiệp vụ mà Frontend không được phép tự quyết định
@@ -100,8 +108,8 @@ public class BookingService : IBookingService
 		booking.CouponId = validCouponId;
 		booking.TotalPrice = package.Price;
 		booking.DiscountAmount = discountAmount;
-		booking.RemainingAmount = finalPrice;
-		booking.DepositAmount = 0;
+		booking.RemainingAmount = finalPrice - depositAmount;
+		booking.DepositAmount = depositAmount;
 		booking.ScheduledEndTime = endTime;
 		booking.DurationMinutes = package.DurationMinutes;
 		booking.Status = BookingStatus.Pending;
@@ -158,20 +166,6 @@ public class BookingService : IBookingService
 		var result = _mapper.Map<List<BookingResponseDto>>(bookings.OrderByDescending(b => b.CreatedBy));
 
 		return result;
-
-		//return bookings.OrderByDescending(b => b.CreatedDate).Select(b => new BookingResponseDto
-		//{
-		//	Id = b.Id,
-		//	CustomerName = b.CustomerName!,
-		//	ServiceName = b.ServicePackage?.Service?.Name ?? "",
-		//	DurationMinutes = b.DurationMinutes,
-		//	ScheduledStartTime = b.ScheduledStartTime,
-		//	ScheduledEndTime = b.ScheduledEndTime,
-		//	TotalPrice = b.TotalPrice,
-		//	DiscountAmount = b.DiscountAmount,
-		//	FinalAmount = b.RemainingAmount,
-		//	Status = b.Status
-		//});
 	}
 
 	public async Task<bool> UpdateBookingStatusAsync(int bookingId, BookingStatus newStatus)
@@ -184,5 +178,32 @@ public class BookingService : IBookingService
 		await _unitOfWork.SaveChangesAsync();
 
 		return true;
+	}
+
+	public async Task<List<TimeSlotDto>> GetAvailableTimeSlotsAsync(DateTime date, int durationMinutes)
+	{
+		var slots = new List<TimeSlotDto>();
+		// Giả sử Spa mở cửa từ 9h sáng đến 8h tối (21h)
+		var openTime = date.Date.AddHours(8); 
+		var closeTime = date.Date.AddHours(22);
+    
+		var currentTimeSlot = openTime;
+
+		// Quét từng khung giờ (mỗi slot cách nhau 30 phút)
+		while (currentTimeSlot.AddMinutes(durationMinutes) <= closeTime)
+		{
+			// Tái sử dụng hàm check Overlap siêu xịn của bác
+			var isAvailable = await CheckAvailabilityAsync(currentTimeSlot, durationMinutes);
+        
+			slots.Add(new TimeSlotDto
+			{
+				Time = currentTimeSlot.ToString("HH:mm"),
+				Available = isAvailable // True nếu còn chỗ, False nếu đã đầy
+			});
+
+			currentTimeSlot = currentTimeSlot.AddMinutes(30); // Bước nhảy 30 phút
+		}
+
+		return slots;
 	}
 }

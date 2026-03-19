@@ -25,13 +25,16 @@ public class SpaManagerService : ISpaManagerService
             s => s.Status == true,
             s => s.Packages!);
 
+        
         return services.Select(s => new ServiceDto
         {
             Id = s.Id,
+            CategoryId = s.CategoryId,
             Name = s.Name,
             Slug = s.Slug!,
             Image = s.Image,
             ShortDescription = s.ShortDescription,
+            Hot = s.Hot,
             Packages = s.Packages!.Select(p => new ServicePackageDto
             {
                 Id = p.Id,

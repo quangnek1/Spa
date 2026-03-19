@@ -54,7 +54,7 @@ public class AuthService : IAuthService
 			AccessToken = accessToken,
 			RefreshToken = refreshToken,
 			Email = user.Email!,
-			FullName = user.FirstName!,
+			FullName = user.FirstName  + " " + user.LastName!,
 			Roles = roles
 		};
 	}
@@ -155,7 +155,7 @@ public class AuthService : IAuthService
 		var token = new JwtSecurityToken(
 			issuer: _configuration["JWT:ValidIssuer"],
 			audience: _configuration["JWT:ValidAudience"],
-			expires: DateTime.UtcNow.AddMinutes(10), // Access token sống 5 phút
+			expires: DateTime.UtcNow.AddMinutes(1), // Access token sống 5 phút
 			claims: authClaims,
 			signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
 		);

@@ -12,7 +12,7 @@ using Spa.Infrastructure.Data;
 namespace Spa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260317173407_InitDB")]
+    [Migration("20260318170329_InitDB")]
     partial class InitDB
     {
         /// <inheritdoc />

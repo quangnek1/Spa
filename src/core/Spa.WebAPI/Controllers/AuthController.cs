@@ -23,9 +23,9 @@ public class AuthController : BaseController
 		var cookieOptions = new CookieOptions
 		{
 			HttpOnly = true,
-			Secure = false,
-			SameSite = SameSiteMode.None,
-			Expires = DateTime.UtcNow.AddDays(7)
+			Secure = true,
+			SameSite = SameSiteMode.Strict,
+			Expires = DateTime.UtcNow.AddDays(30)
 		};
 		Response.Cookies.Append("refreshToken", result.RefreshToken, cookieOptions);
 

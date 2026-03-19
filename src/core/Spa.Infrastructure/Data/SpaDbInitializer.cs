@@ -166,7 +166,7 @@ public class SpaDbInitializer
                 CategoryId = massageCategory.Id,
                 Name = "Aromatherapy Bliss",
                 Slug = "aromatherapy-bliss-massage",
-                Image = "/services/aromatherapy-bliss.jpg",
+                Image = "service-aromatherapy.jpg",
                 ShortDescription = "Relaxing Swedish-inspired aromatherapy massage.",
                 Description =
                     "Inspired by traditional Swedish massage, this aromatherapy treatment melts away tension and restores deep harmony.",
@@ -189,7 +189,7 @@ public class SpaDbInitializer
                 CategoryId = massageCategory.Id,
                 Name = "Remedial Shiatsu / Cupping / Hot Stone",
                 Slug = "shiatsu-cupping-hot-stone-massage",
-                Image = "/services/shiatsu-massage.jpg",
+                Image = "service-hot-stone.jpg",
                 ShortDescription = "Traditional Japanese Shiatsu therapy for body balance.",
                 Description =
                     "A therapeutic massage using finger pressure, stretching, and gentle techniques to release tension, improve circulation, and promote deep relaxation.",
@@ -212,7 +212,7 @@ public class SpaDbInitializer
                 CategoryId = massageCategory.Id,
                 Name = "Ultra Luxury Radiance Combo",
                 Slug = "ultra-luxury-radiance-combo",
-                Image = "/services/ultra-luxury-radiance-combo.jpg",
+                Image = "service-deluxe.jpg",
                 ShortDescription = "VIP treatment combining massage, headwash, and advanced facial care.",
                 Description =
                     "The most luxurious spa experience including massage, headwash, and advanced machine facial treatment that detoxifies, firms, brightens, and makes skin glow.",
@@ -235,7 +235,7 @@ public class SpaDbInitializer
                 CategoryId = massageCategory.Id,
                 Name = "Signature Deluxe Combo",
                 Slug = "signature-deluxe-combo",
-                Image = "/services/signature-deluxe-combo.jpg",
+                Image = "service-deep-tissue.jpg",
                 ShortDescription = "Aromatherapy massage combined with Japanese head spa.",
                 Description =
                     "A divine blend of Aromatherapy Bliss followed by a Traditional Japanese Head Spa for the perfect harmony of body and soul.",
@@ -258,7 +258,7 @@ public class SpaDbInitializer
                 CategoryId = headSpaCategory.Id,
                 Name = "Traditional Japanese Head Spa",
                 Slug = "traditional-japanese-head-spa",
-                Image = "/services/traditional-japanese-head-spa.jpg",
+                Image = "service-head-spa.jpg",
                 ShortDescription = "Deep relaxing Japanese scalp treatment.",
                 Description =
                     "A relaxing head spa journey with scalp cleansing, mini facial, and aromatherapy mist inspired by ancient Japanese techniques.",
@@ -281,7 +281,7 @@ public class SpaDbInitializer
                 CategoryId = headSpaCategory.Id,
                 Name = "Premium Japanese Head Spa",
                 Slug = "premium-japanese-head-spa",
-                Image = "/services/premium-japanese-head-spa.jpg",
+                Image = "service-premium.jpg",
                 ShortDescription = "Luxury Japanese head spa with herbal foot bath and massage.",
                 Description =
                     "Includes traditional Japanese head spa plus herbal foot bath, foot massage, hand and shoulder massage, and deep conditioning steam ritual.",
@@ -304,7 +304,7 @@ public class SpaDbInitializer
                 CategoryId = headSpaCategory.Id,
                 Name = "Premium Back & Japanese Headwash Combo",
                 Slug = "back-massage-japanese-headwash-combo",
-                Image = "/services/back-headwash-combo.jpg",
+                Image = "service-scalp-detox.jpg",
                 ShortDescription = "Back massage combined with traditional Japanese headwash.",
                 Description =
                     "Back massage to relieve neck and shoulder tension followed by the full traditional Japanese headwash ritual.",
@@ -327,7 +327,7 @@ public class SpaDbInitializer
                 CategoryId = headSpaCategory.Id,
                 Name = "Head & Back Combo",
                 Slug = "head-back-massage-combo",
-                Image = "/services/head-back-combo.jpg",
+                Image = "service-herbal-steam.jpg",
                 ShortDescription = "Back massage and scalp cleansing treatment.",
                 Description =
                     "30 minutes of back massage for neck and shoulders followed by 40 minutes of relaxing scalp cleansing treatment.",
@@ -349,7 +349,7 @@ public class SpaDbInitializer
                 CategoryId = headSpaCategory.Id,
                 Name = "Advanced Facial Care & Traditional Headwash",
                 Slug = "advanced-facial-traditional-headwash",
-                Image = "/services/facial-headwash.jpg",
+                Image = "service-neck-shoulder.jpg",
                 ShortDescription = "Advanced facial treatment followed by nourishing headwash.",
                 Description =
                     "Professional machine-based facial treatment with detoxifying, brightening, firming, smoothing, and deep cleansing followed by a nourishing Japanese headwash.",

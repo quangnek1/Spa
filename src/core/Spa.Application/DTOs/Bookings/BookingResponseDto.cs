@@ -15,6 +15,7 @@ public class BookingResponseDto : IMapFrom<Booking>
 	public DateTime ScheduledEndTime { get; set; }
 	public decimal TotalPrice { get; set; }
 	public decimal DiscountAmount { get; set; }
+	public decimal DepositAmount { get; set; } 
 	public decimal FinalAmount { get; set; }
 	public BookingStatus Status { get; set; }
 	

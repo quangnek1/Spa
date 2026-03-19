@@ -12,6 +12,8 @@ public class ServiceDto : IMapFrom<Service>
     public string Image { get; set; } = default!;
     public string Description { get; set; } = default!;
     public string ShortDescription { get; set; } = default!;
+    public bool? Hot { get; set; } = default!;
+    public int CategoryId { get; set; } 
 
     // Gom các Package thành danh sách giá cơ bản để hiển thị
     public List<ServicePackageDto>? Packages { get; set; } = new();

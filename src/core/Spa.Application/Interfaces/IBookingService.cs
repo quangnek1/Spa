@@ -22,4 +22,6 @@ public interface IBookingService
 
 	// 5. Cập nhật trạng thái (Dành cho Webhook Stripe hoặc Admin đổi trạng thái)
 	Task<bool> UpdateBookingStatusAsync(int bookingId, BookingStatus newStatus);
+	// 6. Check Slot trống
+	Task<List<TimeSlotDto>> GetAvailableTimeSlotsAsync(DateTime date, int durationMinutes);
 }

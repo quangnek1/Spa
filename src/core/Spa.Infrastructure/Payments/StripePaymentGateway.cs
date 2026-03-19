@@ -16,7 +16,8 @@ public class StripePaymentGateway : IPaymentGateway
 
     public async Task<StripeSessionResponseDto> CreateStripeSessionUrlAsync(BookingResponseDto booking)
     {
-        var amountInCents = (long)(booking.TotalPrice * 100);
+        // 🟢 1. LẤY TIỀN CỌC CHỨ KHÔNG LẤY TỔNG TIỀN NỮA
+        var amountInCents = (long)(booking.DepositAmount * 100);
         // Đọc URL từ appsettings.json
         var frontendUrl = _configuration["Stripe:FrontendUrl"];
 
@@ -33,7 +34,7 @@ public class StripePaymentGateway : IPaymentGateway
                         Currency = "aud",
                         ProductData = new SessionLineItemPriceDataProductDataOptions()
                         {
-                            Name = booking.ServiceName,
+                            Name = $"Deposit (20%) - {booking.ServiceName}",
                             Description = $"Pay for the booking code: #{booking.Id}"
                         }
                     },
