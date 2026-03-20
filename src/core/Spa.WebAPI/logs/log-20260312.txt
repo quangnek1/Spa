@@ -1,0 +1,535 @@
+2026-03-12 22:46:08.964 +07:00 [ERR] Đã xảy ra lỗi trong quá trình khởi tạo dữ liệu mẫu.
+System.InvalidOperationException: An error was generated for warning 'Microsoft.EntityFrameworkCore.Migrations.PendingModelChangesWarning': The model for context 'ApplicationDbContext' has pending changes. Add a new migration before updating the database. See https://aka.ms/efcore-docs-pending-changes. This exception can be suppressed or logged by passing event ID 'RelationalEventId.PendingModelChangesWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam arg)
+   at Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions.PendingModelChangesWarning(IDiagnosticsLogger`1 diagnostics, Type contextType)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.ValidateMigrations(Boolean useTransaction, String targetMigration)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Spa.Infrastructure.Data.SpaDbInitializer.SeedAsync() in /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.Infrastructure/Data/SpaDbInitializer.cs:line 28
+   at Program.<Main>$(String[] args) in /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI/Program.cs:line 31
+2026-03-12 22:46:09.038 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-12 22:46:09.039 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-12 22:46:09.039 +07:00 [INF] Hosting environment: Development
+2026-03-12 22:46:09.039 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-12 22:46:15.019 +07:00 [INF] Application is shutting down...
+2026-03-12 22:47:10.978 +07:00 [ERR] Đã xảy ra lỗi trong quá trình khởi tạo dữ liệu mẫu.
+System.InvalidOperationException: An error was generated for warning 'Microsoft.EntityFrameworkCore.Migrations.PendingModelChangesWarning': The model for context 'ApplicationDbContext' has pending changes. Add a new migration before updating the database. See https://aka.ms/efcore-docs-pending-changes. This exception can be suppressed or logged by passing event ID 'RelationalEventId.PendingModelChangesWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam arg)
+   at Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions.PendingModelChangesWarning(IDiagnosticsLogger`1 diagnostics, Type contextType)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.ValidateMigrations(Boolean useTransaction, String targetMigration)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Spa.Infrastructure.Data.SpaDbInitializer.SeedAsync() in /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.Infrastructure/Data/SpaDbInitializer.cs:line 28
+   at Program.<Main>$(String[] args) in /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI/Program.cs:line 31
+2026-03-12 22:47:11.047 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-12 22:47:11.048 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-12 22:47:11.048 +07:00 [INF] Hosting environment: Development
+2026-03-12 22:47:11.048 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-12 22:47:36.789 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:36.859 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:44.765 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:44.865 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:44.866 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:44.998 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:45.268 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:54.579 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:47:55.117 +07:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:47:55.122 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:48:19.318 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:48:19.391 +07:00 [ERR] Failed executing DbCommand (5ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:48:19.392 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:14.640 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:14.725 +07:00 [ERR] Failed executing DbCommand (7ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:14.727 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:19.054 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:19.069 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:19.070 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:19.676 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:19.692 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:19.693 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:19.874 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:19.885 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:19.887 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:20.054 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:20.062 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:20.063 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:20.218 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:20.224 +07:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:20.225 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:20.406 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:20.414 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:20.414 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:20.610 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:20.623 +07:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:20.625 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:33.365 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:33.385 +07:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:33.386 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:34.137 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:34.149 +07:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:34.150 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:49:34.305 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:49:34.318 +07:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:49:34.319 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:50:19.952 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-12 22:50:19.998 +07:00 [ERR] Failed executing DbCommand (25ms) [Parameters=[@startTime='?' (DbType = DateTime2), @endTime='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SELECT [b].[Id], [b].[ActualEndTime], [b].[ActualStartTime], [b].[CouponId], [b].[CreatedBy], [b].[CreatedDate], [b].[CustomerEmail], [b].[CustomerName], [b].[CustomerPhone], [b].[DepositAmount], [b].[DiscountAmount], [b].[DurationMinutes], [b].[LastModifiedDate], [b].[ModifiedBy], [b].[Notes], [b].[PaymentMethod], [b].[RemainingAmount], [b].[ScheduledEndTime], [b].[ScheduledStartTime], [b].[ServicePackageId], [b].[StaffId], [b].[Status], [b].[TotalPrice], [b].[UserId]
+FROM [Bookings] AS [b]
+WHERE [b].[Status] IN (1, 2, 3) AND @startTime < [b].[ScheduledEndTime] AND @endTime > [b].[ScheduledStartTime]
+2026-03-12 22:50:19.999 +07:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Spa.Infrastructure.Data.ApplicationDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'PaymentMethod'.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:4b7ef9cb-2ff3-4b13-9665-09cbd0857755
+Error Number:207,State:1,Class:16
+2026-03-12 22:50:45.542 +07:00 [INF] Application is shutting down...

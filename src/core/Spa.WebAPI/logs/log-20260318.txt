@@ -1,0 +1,181 @@
+2026-03-18 00:00:31.592 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 00:00:31.616 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 00:00:31.617 +07:00 [INF] Hosting environment: Development
+2026-03-18 00:00:31.617 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 00:00:54.120 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 00:00:54.383 +07:00 [WRN] The cookie 'refreshToken' has set 'SameSite=None' and must also set 'Secure'.
+2026-03-18 00:01:57.450 +07:00 [INF] Application is shutting down...
+2026-03-18 00:02:02.355 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 00:02:02.373 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 00:02:02.373 +07:00 [INF] Hosting environment: Development
+2026-03-18 00:02:02.374 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 00:02:07.985 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 00:02:08.201 +07:00 [WRN] The cookie 'refreshToken' has set 'SameSite=None' and must also set 'Secure'.
+2026-03-18 00:04:53.147 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 00:04:53.249 +07:00 [WRN] The cookie 'refreshToken' has set 'SameSite=None' and must also set 'Secure'.
+2026-03-18 00:08:09.855 +07:00 [INF] Application is shutting down...
+2026-03-18 00:10:48.426 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 00:10:48.448 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 00:10:48.448 +07:00 [INF] Hosting environment: Development
+2026-03-18 00:10:48.448 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 00:11:09.340 +07:00 [INF] Application is shutting down...
+2026-03-18 00:21:26.128 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 00:21:26.153 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 00:21:26.153 +07:00 [INF] Hosting environment: Development
+2026-03-18 00:21:26.153 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 00:22:17.664 +07:00 [INF] Application is shutting down...
+2026-03-18 00:24:09.000 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 00:24:09.025 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 00:24:09.025 +07:00 [INF] Hosting environment: Development
+2026-03-18 00:24:09.025 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 00:31:05.676 +07:00 [INF] Application is shutting down...
+2026-03-18 00:34:38.602 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 00:34:38.623 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 00:34:38.623 +07:00 [INF] Hosting environment: Development
+2026-03-18 00:34:38.623 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 00:36:02.840 +07:00 [INF] Application is shutting down...
+2026-03-18 20:02:24.231 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 20:02:24.268 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 20:02:24.269 +07:00 [INF] Hosting environment: Development
+2026-03-18 20:02:24.270 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 20:02:43.468 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:04:16.994 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:15:33.652 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:29:44.589 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 20:29:44.613 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 20:29:44.614 +07:00 [INF] Hosting environment: Development
+2026-03-18 20:29:44.614 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 20:29:52.904 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:31:39.679 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 20:31:39.698 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 20:31:39.699 +07:00 [INF] Hosting environment: Development
+2026-03-18 20:31:39.699 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 20:34:03.434 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:36:55.937 +07:00 [INF] Application is shutting down...
+2026-03-18 20:40:58.363 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 20:40:58.384 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 20:40:58.384 +07:00 [INF] Hosting environment: Development
+2026-03-18 20:40:58.384 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 20:41:17.833 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:41:27.053 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:41:28.150 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:41:28.692 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:41:28.917 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:41:29.119 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:41:29.302 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:41:29.872 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:58:25.191 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 20:59:19.529 +07:00 [INF] Application is shutting down...
+2026-03-18 20:59:25.364 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 20:59:25.387 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 20:59:25.388 +07:00 [INF] Hosting environment: Development
+2026-03-18 20:59:25.389 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 20:59:30.590 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 21:01:15.820 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 21:01:15.841 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 21:01:15.842 +07:00 [INF] Hosting environment: Development
+2026-03-18 21:01:15.842 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 21:01:28.714 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 21:46:44.402 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 21:46:44.424 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 21:46:44.425 +07:00 [INF] Hosting environment: Development
+2026-03-18 21:46:44.425 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 21:46:50.466 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 21:48:07.864 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 21:48:07.882 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 21:48:07.883 +07:00 [INF] Hosting environment: Development
+2026-03-18 21:48:07.883 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 21:48:18.281 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 21:49:31.722 +07:00 [INF] Application is shutting down...
+2026-03-18 22:07:05.858 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 22:07:05.882 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 22:07:05.883 +07:00 [INF] Hosting environment: Development
+2026-03-18 22:07:05.884 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 22:07:18.689 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:26:02.757 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 22:26:02.780 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 22:26:02.782 +07:00 [INF] Hosting environment: Development
+2026-03-18 22:26:02.783 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 22:26:20.870 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:26:20.870 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:26:20.938 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:26:29.727 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:26:59.924 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:26:59.924 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:47:12.997 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 22:47:13.019 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 22:47:13.019 +07:00 [INF] Hosting environment: Development
+2026-03-18 22:47:13.019 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 22:47:15.005 +07:00 [INF] Application is shutting down...
+2026-03-18 22:47:33.195 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 22:47:33.222 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 22:47:33.223 +07:00 [INF] Hosting environment: Development
+2026-03-18 22:47:33.224 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 22:47:46.006 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:47:46.006 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:49:24.466 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:49:24.466 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:49:24.577 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:49:30.652 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:49:50.117 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:49:50.117 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:54:40.197 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 22:54:40.217 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 22:54:40.217 +07:00 [INF] Hosting environment: Development
+2026-03-18 22:54:40.217 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 22:54:53.540 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 22:58:37.653 +07:00 [INF] Application is shutting down...
+2026-03-18 23:01:54.724 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 23:01:54.748 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 23:01:54.748 +07:00 [INF] Hosting environment: Development
+2026-03-18 23:01:54.748 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 23:01:58.022 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:02:04.688 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:02:05.846 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:02:08.093 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:02:08.176 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:05:15.437 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:05:16.295 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:05:20.458 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:05:30.383 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:06:31.797 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:07:55.001 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:08:13.770 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:08:14.387 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:09:17.152 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:09:36.982 +07:00 [INF] Application is shutting down...
+2026-03-18 23:09:41.860 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 23:09:41.904 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 23:09:41.906 +07:00 [INF] Hosting environment: Development
+2026-03-18 23:09:41.907 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 23:09:49.794 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:13:19.932 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 23:13:19.953 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 23:13:19.953 +07:00 [INF] Hosting environment: Development
+2026-03-18 23:13:19.953 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 23:13:25.091 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:13:56.566 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:15:34.620 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:15:35.284 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:15:55.748 +07:00 [INF] Application is shutting down...
+2026-03-18 23:16:02.149 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 23:16:02.171 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 23:16:02.172 +07:00 [INF] Hosting environment: Development
+2026-03-18 23:16:02.172 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 23:16:18.430 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:18:36.512 +07:00 [INF] Now listening on: http://localhost:5236
+2026-03-18 23:18:36.531 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-18 23:18:36.531 +07:00 [INF] Hosting environment: Development
+2026-03-18 23:18:36.531 +07:00 [INF] Content root path: /Users/quang/Code/1. NET CORE/SourceCode/Spa/src/core/Spa.WebAPI
+2026-03-18 23:18:44.997 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:18:58.134 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:20:44.074 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:20:47.402 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:49:03.216 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:49:11.040 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:49:11.105 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:53:16.067 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:53:28.902 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:56:46.294 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:56:50.792 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-03-18 23:57:21.170 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
