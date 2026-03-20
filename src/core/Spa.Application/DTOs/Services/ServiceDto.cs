@@ -13,6 +13,7 @@ public class ServiceDto : IMapFrom<Service>
     public string Description { get; set; } = default!;
     public string ShortDescription { get; set; } = default!;
     public bool? Hot { get; set; } = default!;
+    public bool Status { get; set; }
     public int CategoryId { get; set; } 
 
     // Gom các Package thành danh sách giá cơ bản để hiển thị

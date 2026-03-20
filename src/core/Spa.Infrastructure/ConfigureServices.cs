@@ -40,6 +40,9 @@ public static class ConfigureServices
         services.AddScoped<IPaymentService, PaymentService>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IPaymentGateway, StripePaymentGateway>();
+        services.AddScoped<IDashboardService, DashboardService>();
+        services.AddScoped<ICustomerService, Spa.Application.Services.CustomerService>();
+        services.AddScoped<IUploadService, UploadService>();
 
         // Đăng ky Seeding Data
         services.AddScoped<SpaDbInitializer>();

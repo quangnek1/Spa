@@ -49,7 +49,7 @@ try
         app.MapOpenApi();
         app.MapScalarApiReference();
     }
-
+    app.UseStaticFiles();
     //app.UseHttpsRedirection();
 
     app.UseAuthentication();

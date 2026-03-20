@@ -18,6 +18,9 @@ public class BookingResponseDto : IMapFrom<Booking>
 	public decimal DepositAmount { get; set; } 
 	public decimal FinalAmount { get; set; }
 	public BookingStatus Status { get; set; }
+	public string? CustomerEmail { get; set; } 
+	public string? CustomerPhone { get; set; }
+	public string? Notes { get; set; } // Thêm luôn ghi chú kẻo lại thiếu
 	
 	public void Mapping(Profile profile)
 	{
@@ -25,6 +28,7 @@ public class BookingResponseDto : IMapFrom<Booking>
 			// Map từ các quan hệ (Navigation Properties)
 			.ForMember(dest => dest.ServiceName, opt => opt.MapFrom(src => src.ServicePackage!.Service!.Name))
 			.ForMember(dest => dest.FinalAmount, opt => opt.MapFrom(src => src.RemainingAmount))
-			.ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString())); // Chuyển Enum sang String
+			.ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status.ToString())) // Chuyển Enum sang String
+			.ForMember(dest => dest.ServiceName, opt => opt.MapFrom(src => src.ServicePackage!.Service!.Name));
 	}
 }

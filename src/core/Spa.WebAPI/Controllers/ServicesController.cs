@@ -15,9 +15,9 @@ public class ServicesController : BaseController
  
     // GET: api/services
     [HttpGet]
-    public async Task<IActionResult> GetAllServices()
+    public async Task<IActionResult> GetAllServices(bool activeOnly = false)
     {
-        var services = await _spaManagerService.GetAllServicesWithPackagesAsync();
+        var services = await _spaManagerService.GetAllServicesWithPackagesAsync(activeOnly);
         return Ok(services);
     }
 
@@ -26,6 +26,18 @@ public class ServicesController : BaseController
     public async Task<IActionResult> GetServiceBySlug(string slug)
     {
         var service = await _spaManagerService.GetServiceBySlugAsync(slug);
+
+        if (service == null)
+            return NotFound();
+
+        return Ok(service);
+    }
+    // GET: api/services/id/{id}
+    [HttpGet("id/{id:int}")]
+    public async Task<IActionResult> GetServiceById(int id)
+    {
+        // Nhớ viết thêm hàm GetServiceByIdAsync trong ISpaManagerService nhé
+        var service = await _spaManagerService.GetServiceByIdAsync(id);
 
         if (service == null)
             return NotFound();

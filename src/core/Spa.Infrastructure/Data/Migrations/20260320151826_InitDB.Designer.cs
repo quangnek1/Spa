@@ -12,7 +12,7 @@ using Spa.Infrastructure.Data;
 namespace Spa.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260318170329_InitDB")]
+    [Migration("20260320151826_InitDB")]
     partial class InitDB
     {
         /// <inheritdoc />
@@ -142,6 +142,9 @@ namespace Spa.Infrastructure.Data.Migrations
                     b.Property<DateTime?>("ActualStartTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("ApplicationUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int?>("CouponId")
                         .HasColumnType("int");
 
@@ -207,6 +210,8 @@ namespace Spa.Infrastructure.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("CouponId");
 
@@ -1160,6 +1165,10 @@ namespace Spa.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Spa.Domain.Entities.Bookings.Booking", b =>
                 {
+                    b.HasOne("Spa.Domain.Entities.Identity.ApplicationUser", null)
+                        .WithMany("Bookings")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("Spa.Domain.Entities.VoucherCoupon.Coupon", "Coupon")
                         .WithMany()
                         .HasForeignKey("CouponId");
@@ -1282,6 +1291,11 @@ namespace Spa.Infrastructure.Data.Migrations
             modelBuilder.Entity("Spa.Domain.Entities.Bookings.Booking", b =>
                 {
                     b.Navigation("Payments");
+                });
+
+            modelBuilder.Entity("Spa.Domain.Entities.Identity.ApplicationUser", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 
             modelBuilder.Entity("Spa.Domain.Entities.Identity.Staff", b =>

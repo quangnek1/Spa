@@ -580,6 +580,7 @@ namespace Spa.Infrastructure.Data.Migrations
                     PaymentMethod = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     Notes = table.Column<string>(type: "nvarchar(500)", nullable: true),
+                    ApplicationUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     LastModifiedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -603,6 +604,11 @@ namespace Spa.Infrastructure.Data.Migrations
                         name: "FK_Bookings_Staffs_StaffId",
                         column: x => x.StaffId,
                         principalTable: "Staffs",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Bookings_Users_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "Users",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Bookings_Users_UserId",
@@ -644,6 +650,11 @@ namespace Spa.Infrastructure.Data.Migrations
                 name: "IX_Booking_TimeSlot_Status",
                 table: "Bookings",
                 columns: new[] { "ScheduledStartTime", "ScheduledEndTime", "Status" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookings_ApplicationUserId",
+                table: "Bookings",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bookings_CouponId",

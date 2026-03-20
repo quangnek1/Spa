@@ -114,4 +114,30 @@ public class BookingsController : BaseController
 			return BadRequest(new { message = ex.Message });
 		}
 	}
+	[HttpPut("{id}/status")]
+	[Authorize] // 🟢 Tốt nhất là thêm (Roles = "Administrator") nếu bác đã làm phân quyền
+	public async Task<IActionResult> UpdateBookingStatus(int id, [FromBody] UpdateBookingStatusRequest request)
+	{
+		try
+		{
+			// 🟢 Dịch chuỗi "Confirmed", "Completed" từ ReactJS thành Enum BookingStatus của C#
+			// Tham số 'true' ở giữa là để Ignore Case (Bỏ qua viết hoa/thường)
+			if (!Enum.TryParse<BookingStatus>(request.Status, true, out var parsedStatus))
+			{
+				return BadRequest(new { message = $"Trạng thái '{request.Status}' không hợp lệ." });
+			}
+
+			// Gọi Service để lưu vào Database
+			var success = await _bookingService.UpdateBookingStatusAsync(id, parsedStatus);
+            
+			if (!success) 
+				return NotFound(new { message = "Không tìm thấy đơn hàng này." });
+
+			return Ok(new { message = "Cập nhật trạng thái thành công." });
+		}
+		catch (Exception ex)
+		{
+			return BadRequest(new { message = ex.Message });
+		}
+	}
 }

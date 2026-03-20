@@ -18,14 +18,14 @@ public class SpaManagerService : ISpaManagerService
         _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    public async Task<IEnumerable<ServiceDto>> GetAllServicesWithPackagesAsync()
+    public async Task<IEnumerable<ServiceDto>> GetAllServicesWithPackagesAsync(bool activeOnly = false)
     {
         // Nhờ hàm FindAsync nâng cấp, ta có thể Include bảng Packages cực kỳ dễ dàng
         var services = await _unitOfWork.Services.FindAsync(
-            s => s.Status == true,
+            s => !activeOnly || s.Status == true,
             s => s.Packages!);
 
-        
+
         return services.Select(s => new ServiceDto
         {
             Id = s.Id,
@@ -34,7 +34,9 @@ public class SpaManagerService : ISpaManagerService
             Slug = s.Slug!,
             Image = s.Image,
             ShortDescription = s.ShortDescription,
+            Description = s.Description,
             Hot = s.Hot,
+            Status = s.Status,
             Packages = s.Packages!.Select(p => new ServicePackageDto
             {
                 Id = p.Id,
@@ -66,6 +68,19 @@ public class SpaManagerService : ISpaManagerService
                 Price = p.Price
             }).ToList()
         };
+    }
+
+    public async Task<ServiceDto?> GetServiceByIdAsync(int id)
+    {
+        var service = await _unitOfWork.Services.GetFirstOrDefaultAsync(
+            s => s.Id == id,
+            s => s.Packages!); // Có thể phẩy thêm s => s.Images, s => s.Reviews
+
+        if (service == null) return null;
+
+        var result = _mapper.Map<ServiceDto>(service);
+
+        return result;
     }
 
     public async Task<ServiceDto> CreateServiceAsync(CreateServiceDto request)

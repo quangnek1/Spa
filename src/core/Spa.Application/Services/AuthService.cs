@@ -155,7 +155,7 @@ public class AuthService : IAuthService
 		var token = new JwtSecurityToken(
 			issuer: _configuration["JWT:ValidIssuer"],
 			audience: _configuration["JWT:ValidAudience"],
-			expires: DateTime.UtcNow.AddMinutes(1), // Access token sống 5 phút
+			expires: DateTime.UtcNow.AddMinutes(30), // Access token sống 5 phút
 			claims: authClaims,
 			signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
 		);

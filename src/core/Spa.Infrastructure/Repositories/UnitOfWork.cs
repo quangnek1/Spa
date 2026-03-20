@@ -47,6 +47,7 @@ public class UnitOfWork : IUnitOfWork
 	public IGenericRepository<FAQ> FAQs => new GenericRepository<FAQ>(_context);
 
 	public IGenericRepository<Staff> Staffs => new GenericRepository<Staff>(_context);
+	public IGenericRepository<ApplicationUser> Users => new GenericRepository<ApplicationUser>(_context);
 	public IGenericRepository<RefreshToken> RefreshTokens => new GenericRepository<RefreshToken>(_context);
 
 

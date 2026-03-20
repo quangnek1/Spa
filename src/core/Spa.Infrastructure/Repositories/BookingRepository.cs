@@ -15,7 +15,9 @@ namespace Spa.Infrastructure.Repositories
 
 		public async Task<PagedResult<Booking>> GetPagedBookingsAsync(PagingRequestParameters request)
 		{
-			var query = dbSet.AsQueryable();
+			var query = dbSet.AsQueryable()
+				.Include(b => b.ServicePackage)
+				.ThenInclude(p => p.Service);;
 
 			var totalItems = await query.CountAsync();
 
